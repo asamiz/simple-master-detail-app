@@ -10,6 +10,18 @@ module.exports = {
     'react-native',
     'eslint-plugin-react-hooks',
     'import',
+    'detox',
+    'jest',
+  ],
+  overrides: [
+    {
+      files: ['*.e2e.js'],
+      env: {
+        'detox/detox': true,
+        jest: true,
+        'jest/globals': true,
+      },
+    },
   ],
   ignorePatterns: ['node_modules/'],
   rules: {
