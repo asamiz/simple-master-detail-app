@@ -33,6 +33,11 @@ export default StyleSheet.create({
     borderWidth: 1,
     borderColor: COLORS.border,
   },
+  imagePlaceHolder: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: COLORS.surface,
+  },
   name: {
     color: COLORS.text,
     fontSize: RFValue(16),

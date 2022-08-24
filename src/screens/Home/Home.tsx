@@ -1,21 +1,33 @@
 import React from 'react';
-import { FlatList } from 'react-native';
+import { useState } from 'react';
+import { ActivityIndicator, FlatList } from 'react-native';
 import FastImage from 'react-native-fast-image';
-import { dummyUsers } from './dummyData';
 import styles from './styles';
-import { UserCard } from 'components';
+import { useGetPersons } from './useGetPersons';
+import { EmptyList, UserCard } from 'components';
 import { IMAGES } from 'images';
+import { UserData } from 'types';
+
+const PERSONS_LIMIT = 50;
 
 const Home = () => {
-  const renderItem = (item: any) => (
+  const [start, setStart] = useState<number>(0);
+  const { response, endReached } = useGetPersons({ start });
+  const { data, loading } = response;
+
+  const renderItem = (item: UserData) => (
     <UserCard
-      testID="user-card"
+      testID={`user-${item.id}-card`}
       name={item.name}
-      id={item.id}
-      imageUrl={item.image}
+      imageUrl={item.picture_id?.pictures[512]}
     />
   );
-  return (
+
+  const onEndReached = () => setStart(prev => prev + PERSONS_LIMIT);
+
+  return loading ? (
+    <ActivityIndicator testID="users-loader" style={styles.activityIndicator} />
+  ) : (
     <>
       <FastImage
         testID="pipedrive-logo"
@@ -25,10 +37,15 @@ const Home = () => {
       />
       <FlatList
         testID="users-list"
-        data={dummyUsers}
+        data={data}
         contentContainerStyle={styles.container}
+        showsVerticalScrollIndicator={false}
         renderItem={({ item }) => renderItem(item)}
         keyExtractor={item => item.id.toString()}
+        onEndReached={onEndReached}
+        onEndReachedThreshold={0.5}
+        ListFooterComponent={!endReached ? <ActivityIndicator /> : null}
+        ListEmptyComponent={<EmptyList />}
       />
     </>
   );

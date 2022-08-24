@@ -7,29 +7,47 @@ import { RFValue } from 'src/utils/responsive';
 import { COLORS } from 'theme';
 
 type Props = {
-  id: number;
-  testID: string;
-  name: string;
-  imageUrl: string;
+  testID?: string;
+  name?: string;
+  imageUrl?: string | undefined;
   containerStyle?: ViewStyle;
+  onPress?: () => void;
 };
 
 export const UserCard = ({
-  id,
   testID,
   name,
   imageUrl,
+  onPress,
   containerStyle,
 }: Props) => {
   return (
-    <Pressable testID={testID} style={[styles.container, containerStyle]}>
+    <Pressable
+      testID={testID}
+      style={[styles.container, containerStyle]}
+      onPress={onPress}
+    >
       <View style={styles.contentContainer}>
-        <FastImage
-          testID={`user-${id}-image`}
-          source={{ uri: imageUrl }}
-          style={styles.image}
-        />
-        <Text testID={`user-${id}-name`} style={styles.name}>
+        {imageUrl ? (
+          <FastImage
+            testID={'user-image'}
+            source={{ uri: imageUrl }}
+            style={styles.image}
+          />
+        ) : (
+          <View
+            testID={'user-image'}
+            style={[styles.image, styles.imagePlaceHolder]}
+          >
+            <Icon
+              testID="placeholder-icon"
+              name="person-outline"
+              size={RFValue(45)}
+              color={COLORS.interactive}
+            />
+          </View>
+        )}
+        <Text testID={'user-name'} style={styles.name}>
           {name}
         </Text>
       </View>

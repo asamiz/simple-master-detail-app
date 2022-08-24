@@ -11,4 +11,9 @@ export default StyleSheet.create({
     paddingHorizontal: RWValue(16),
     paddingVertical: RHValue(16),
   },
+  activityIndicator: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 });

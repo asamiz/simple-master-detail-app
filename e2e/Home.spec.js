@@ -20,8 +20,8 @@ describe('Home Screen Specs', () => {
       element(
         by
           .id('users-list')
-          .withDescendant(by.id('user-card'))
-          .withDescendant(by.id('user-1-name')),
+          .withDescendant(by.id('user-1-card'))
+          .withDescendant(by.id('user-name')),
       ),
     ).toBeVisible();
   });
@@ -31,9 +31,16 @@ describe('Home Screen Specs', () => {
       element(
         by
           .id('users-list')
-          .withDescendant(by.id('user-card'))
-          .withDescendant(by.id('user-1-image')),
+          .withDescendant(by.id('user-1-card'))
+          .withDescendant(by.id('user-image')),
       ),
     ).toBeVisible();
+  });
+
+  it('should load the next page when scrolling [pagination]', async () => {
+    await waitFor(element(by.id('user-51-card')))
+      .toBeVisible()
+      .whileElement(by.id('users-list'))
+      .scroll(200, 'down');
   });
 });
