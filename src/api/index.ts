@@ -1,2 +1,2 @@
 export * from './requests';
-export { client } from './client';
+export * from './client';

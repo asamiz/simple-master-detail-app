@@ -3,7 +3,6 @@ import { View, Text, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { RFValue, RHValue, RWValue } from 'src/utils/responsive';
 import { COLORS, FONTS } from 'theme';
-// import { RFValue, RHValue } from 'utils';
 
 export const EmptyList = () => {
   return (

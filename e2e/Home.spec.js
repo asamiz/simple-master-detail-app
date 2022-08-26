@@ -41,6 +41,6 @@ describe('Home Screen Specs', () => {
     await waitFor(element(by.id('user-51-card')))
       .toBeVisible()
       .whileElement(by.id('users-list'))
-      .scroll(200, 'down');
+      .scroll(500, 'down');
   });
 });

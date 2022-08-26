@@ -3,7 +3,7 @@ import Config from 'react-native-config';
 
 export const client = axios.create({
   baseURL: Config.API_BASE_URL,
-  timeout: 1200000,
+  timeout: 6000,
 });
 
 client.interceptors.request.use((config: AxiosRequestConfig) => {

@@ -12,8 +12,6 @@ export default StyleSheet.create({
     paddingVertical: RHValue(16),
   },
   activityIndicator: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    marginTop: RHValue(24),
   },
 });

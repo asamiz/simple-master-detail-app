@@ -1,11 +1,11 @@
 import { RouteProp } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { ComponentType } from 'react';
-import { UserData } from './api';
+import { PersonData } from './api';
 
 export type MainStackParamList = {
   HomeScreen: undefined;
-  UserScreen: { user: UserData };
+  UserScreen: { user: PersonData };
 };
 
 type MainRoute = {
@@ -33,4 +33,4 @@ export type UserScreenNavigationProp = NativeStackNavigationProp<
   'UserScreen'
 >;
 
-export type UserScreenRouteProp = RouteProp<MainStackParamList, 'HomeScreen'>;
+export type UserScreenRouteProp = RouteProp<MainStackParamList, 'UserScreen'>;

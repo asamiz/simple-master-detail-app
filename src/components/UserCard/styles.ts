@@ -36,7 +36,7 @@ export default StyleSheet.create({
   imagePlaceHolder: {
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: COLORS.surface,
+    backgroundColor: COLORS.surfaceSelected,
   },
   name: {
     color: COLORS.text,

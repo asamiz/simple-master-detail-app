@@ -1,33 +1,46 @@
+import { useNavigation } from '@react-navigation/native';
+import { useInfiniteQuery } from '@tanstack/react-query';
 import React from 'react';
-import { useState } from 'react';
 import { ActivityIndicator, FlatList } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import styles from './styles';
-import { useGetPersons } from './useGetPersons';
+import { getPersons } from 'api';
 import { EmptyList, UserCard } from 'components';
 import { IMAGES } from 'images';
-import { UserData } from 'types';
-
-const PERSONS_LIMIT = 50;
+import { HomeScreenNavigationProp, PersonData, PersonsResponse } from 'types';
 
 const Home = () => {
-  const [start, setStart] = useState<number>(0);
-  const { response, endReached } = useGetPersons({ start });
-  const { data, loading } = response;
+  const navigation = useNavigation<HomeScreenNavigationProp>();
+  const { data, hasNextPage, fetchNextPage, isFetchingNextPage } =
+    useInfiniteQuery<PersonsResponse, Error>(
+      ['persons'],
+      ({ pageParam }) => getPersons({ pageParam }),
+      {
+        getNextPageParam: lastPage =>
+          lastPage.additional_data.pagination.next_start,
+      },
+    );
 
-  const renderItem = (item: UserData) => (
+  const renderItem = (user: PersonData) => (
     <UserCard
-      testID={`user-${item.id}-card`}
-      name={item.name}
-      imageUrl={item.picture_id?.pictures[512]}
+      testID={`user-${user.id}-card`}
+      name={user.name}
+      imageUrl={user.picture_id?.pictures[512]}
+      onPress={() => navigation.navigate('UserScreen', { user })}
     />
   );
 
-  const onEndReached = () => setStart(prev => prev + PERSONS_LIMIT);
+  const onEndReached = () => {
+    if (hasNextPage) {
+      fetchNextPage();
+    }
+  };
 
-  return loading ? (
-    <ActivityIndicator testID="users-loader" style={styles.activityIndicator} />
-  ) : (
+  const personItemExtractorKey = (user: PersonData) => {
+    return user.id.toString();
+  };
+
+  return (
     <>
       <FastImage
         testID="pipedrive-logo"
@@ -37,14 +50,17 @@ const Home = () => {
       />
       <FlatList
         testID="users-list"
-        data={data}
+        data={data?.pages.map(page => page.data).flat()}
         contentContainerStyle={styles.container}
-        showsVerticalScrollIndicator={false}
         renderItem={({ item }) => renderItem(item)}
-        keyExtractor={item => item.id.toString()}
+        keyExtractor={personItemExtractorKey}
         onEndReached={onEndReached}
         onEndReachedThreshold={0.5}
-        ListFooterComponent={!endReached ? <ActivityIndicator /> : null}
+        ListFooterComponent={
+          isFetchingNextPage ? (
+            <ActivityIndicator style={styles.activityIndicator} />
+          ) : null
+        }
         ListEmptyComponent={<EmptyList />}
       />
     </>
