@@ -19,6 +19,8 @@ A simple application demonstrating some users' data with a detailed view for eac
 
   You can read more about it from [here](https://react-native-error-boundary.js.org/faq#why-i-see-a-red-error-screen-on-development)
 
+- Pushing `.env` files with secret credentials like I am doing here is not a good approach, however, I am doing this just for the demo purposes.
+
 ## Tech Stack
 
 - [React v18](https://github.com/facebook/react): To use the most recent features added the react core eg: Suspense.
