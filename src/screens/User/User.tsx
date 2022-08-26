@@ -73,22 +73,24 @@ const User = () => {
           )}
         </View>
       </View>
-      <Section title="Organization" iconName="corporate-fare">
-        <Text style={styles.sectionKey}>{`Name: ${user.org_id.name}`}</Text>
-        <Text
-          style={[
-            styles.sectionKey,
-            user.org_id.active_flag
-              ? { color: COLORS.primary }
-              : { color: COLORS.critical },
-          ]}
-        >
-          {`Active: ${user.org_id.active_flag ? 'Yes' : 'No'}`}
-        </Text>
-        <Text
-          style={styles.sectionKey}
-        >{`Email: ${user.org_id.cc_email}`}</Text>
-      </Section>
+      {user.org_id && (
+        <Section title="Organization" iconName="corporate-fare">
+          <Text style={styles.sectionKey}>{`Name: ${user.org_id.name}`}</Text>
+          <Text
+            style={[
+              styles.sectionKey,
+              user.org_id.active_flag
+                ? { color: COLORS.primary }
+                : { color: COLORS.critical },
+            ]}
+          >
+            {`Active: ${user.org_id.active_flag ? 'Yes' : 'No'}`}
+          </Text>
+          <Text
+            style={styles.sectionKey}
+          >{`Email: ${user.org_id.cc_email}`}</Text>
+        </Section>
+      )}
       <Section testID="contact-info-section" title="Contact" iconName="phone">
         {hasContactInfo ? (
           <View>
