@@ -21,7 +21,7 @@ A simple application demonstrating some users' data with a detailed view for eac
 
 ## Tech Stack
 
-- [React v18](_https://github.com/facebook/reac): To use the most recent features added the react core eg: Suspense.
+- [React v18](https://github.com/facebook/react): To use the most recent features added the react core eg: Suspense.
 - [React Native v0.69](https://github.com/facebook/react-native): To develop the app for the both platforms Android and iOS using single code base.
 - [React Navigation v6](https://github.com/react-navigation/react-navigation): To handle the navigation inside the application.
 - [React Native Splash Screen v3](https://github.com/crazycodeboy/react-native-splash-screen): To add native splash screen on both Android and iOS.
