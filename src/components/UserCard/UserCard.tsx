@@ -3,8 +3,8 @@ import { View, Text, ViewStyle, Pressable } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import styles from './styles';
-import { RFValue } from 'src/utils/responsive';
 import { COLORS } from 'theme';
+import { RFValue } from 'utils';
 
 type Props = {
   testID?: string;

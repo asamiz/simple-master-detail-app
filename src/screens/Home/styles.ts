@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { RHValue, RWValue } from 'src/utils/responsive';
+import { RHValue, RWValue } from 'utils';
 
 export default StyleSheet.create({
   image: {

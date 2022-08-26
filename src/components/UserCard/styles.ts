@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
-import { RFValue, RHValue, RWValue } from 'src/utils/responsive';
 import { COLORS, FONTS } from 'theme';
+import { RFValue, RHValue, RWValue } from 'utils';
 
 export default StyleSheet.create({
   container: {

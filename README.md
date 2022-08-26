@@ -4,7 +4,7 @@ A simple application demonstrating some users' data with a detailed view for eac
 
 ## Main functionality
 
-- User can see all the persons added to his/her account on Pipedrive.
+- User can see all persons added to his/her account on Pipedrive.
 - Users can see the detailed view of each person by tapping on the user card which contains his/her name and photo.
 - User's detailed view contains the information about each user like his/her organization, deals, and activities.
 - Users can call any person using any number that listed in the contact information section on the detailed view of each user.

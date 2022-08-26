@@ -2,8 +2,8 @@ import React, { ReactNode } from 'react';
 import { Text, View } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import styles from './styles';
-import { RFValue } from 'src/utils/responsive';
 import { COLORS } from 'theme';
+import { RFValue } from 'utils';
 
 type Props = {
   children: ReactNode;

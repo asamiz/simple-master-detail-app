@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1661514017566" clover="3.2.0">
-  <project timestamp="1661514017566" name="All files">
-    <metrics statements="75" coveredstatements="65" conditionals="37" coveredconditionals="22" methods="33" coveredmethods="25" elements="145" coveredelements="112" complexity="0" loc="75" ncloc="75" packages="12" files="30" classes="30"/>
+<coverage generated="1661529491438" clover="3.2.0">
+  <project timestamp="1661529491438" name="All files">
+    <metrics statements="74" coveredstatements="64" conditionals="37" coveredconditionals="22" methods="33" coveredmethods="25" elements="144" coveredelements="111" complexity="0" loc="74" ncloc="74" packages="12" files="30" classes="30"/>
     <package name="assets.images">
       <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="index.ts" path="/Users/sami/Developer/Tasks/pipedrive/MasterDetail/assets/images/index.ts">
@@ -138,9 +138,9 @@
       </file>
     </package>
     <package name="src.screens.User">
-      <metrics statements="16" coveredstatements="13" conditionals="16" coveredconditionals="11" methods="9" coveredmethods="6"/>
+      <metrics statements="15" coveredstatements="12" conditionals="16" coveredconditionals="11" methods="9" coveredmethods="6"/>
       <file name="User.tsx" path="/Users/sami/Developer/Tasks/pipedrive/MasterDetail/src/screens/User/User.tsx">
-        <metrics statements="16" coveredstatements="13" conditionals="16" coveredconditionals="11" methods="9" coveredmethods="6"/>
+        <metrics statements="15" coveredstatements="12" conditionals="16" coveredconditionals="11" methods="9" coveredmethods="6"/>
         <line num="21" count="2" type="stmt"/>
         <line num="22" count="6" type="stmt"/>
         <line num="23" count="6" type="stmt"/>
@@ -152,11 +152,10 @@
         <line num="35" count="6" type="stmt"/>
         <line num="36" count="0" type="stmt"/>
         <line num="39" count="6" type="stmt"/>
-        <line num="43" count="6" type="stmt"/>
-        <line num="102" count="0" type="stmt"/>
-        <line num="105" count="0" type="stmt"/>
-        <line num="133" count="2" type="stmt"/>
-        <line num="161" count="2" type="stmt"/>
+        <line num="98" count="0" type="stmt"/>
+        <line num="101" count="0" type="stmt"/>
+        <line num="129" count="2" type="stmt"/>
+        <line num="157" count="2" type="stmt"/>
       </file>
       <file name="index.ts" path="/Users/sami/Developer/Tasks/pipedrive/MasterDetail/src/screens/User/index.ts">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>

@@ -14,9 +14,9 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import styles from './styles';
 import { getActivities, getDeals } from 'api';
 import { Section } from 'components';
-import { RFValue } from 'src/utils/responsive';
 import { COLORS } from 'theme';
 import { ActivityData, DealData, UserScreenRouteProp } from 'types';
+import { RFValue } from 'utils';
 
 const User = () => {
   const { params } = useRoute<UserScreenRouteProp>();
